@@ -7,6 +7,7 @@
   let result: BingoOption | null = null;
   let rolling = false;
   let showFinal = false;
+  let isFullscreen = false;
 
   interface BingoOption { color: string; name: string; icon: string; border: string }
   
@@ -56,20 +57,35 @@
     showFinal = true;
   }
 
+  // Fullscreen Logica
+  function toggleFullscreen() {
+    if (!document.fullscreenElement) {
+      document.documentElement.requestFullscreen().catch(err => {
+        console.error(`Error attempting to enable full-screen mode: ${err.message}`);
+      });
+      isFullscreen = true;
+    } else {
+      document.exitFullscreen();
+      isFullscreen = false;
+    }
+  }
+
   // Toetsenbord afhandeling
   function handleKeydown(event: KeyboardEvent) {
     if (event.key === ' ' || event.key === 'Enter') {
-      event.preventDefault(); // Voorkom scrollen bij spatie
+      event.preventDefault(); 
       if (showFinal) {
         reset();
       } else if (!rolling) {
         roll();
       }
     }
-    // Bonus: Wissel kant met de 'S' of 'Tab' toets
     if (event.key.toLowerCase() === 's' || event.key === 'Tab') {
       event.preventDefault();
       toggleSide();
+    }
+    if (event.key.toLowerCase() === 'f') {
+      toggleFullscreen();
     }
   }
 </script>
@@ -159,6 +175,18 @@
       </div>
     </div>
   {/if}
+
+  <button 
+    on:click={toggleFullscreen}
+    class="fixed bottom-6 right-6 p-4 bg-white/5 border border-white/10 rounded-2xl backdrop-blur-md hover:bg-white/10 transition-all active:scale-90 z-60 text-gray-400 hover:text-white"
+    title="Toggle Fullscreen (F)"
+  >
+    {#if isFullscreen}
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 3v3a2 2 0 0 1-2 2H3m18 0h-3a2 2 0 0 1-2-2V3m0 18v-3a2 2 0 0 1 2-2h3M3 16h3a2 2 0 0 1 2 2v3"/></svg>
+    {:else}
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg>
+    {/if}
+  </button>
 </div>
 
 <style>
