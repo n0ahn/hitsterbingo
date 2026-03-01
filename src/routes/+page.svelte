@@ -14,16 +14,16 @@
   const options: Record<'A' | 'B', BingoOption[]> = {
     A: [
       { color: 'bg-emerald-500', border: 'border-emerald-400', name: 'Groep of Solo Artiest', icon: '🎤' },
-      { color: 'bg-rose-500', border: 'border-rose-400', name: 'Voor het jaar 2000?', icon: '⏳' },
-      { color: 'bg-amber-500', border: 'border-amber-400', name: 'Jaartal ± 4 jaar', icon: '📅' },
-      { color: 'bg-fuchsia-600', border: 'border-fuchsia-500', name: 'Welk Decennium?', icon: '📼' },
+      { color: 'bg-pink-500', border: 'border-pink-400', name: 'Voor het jaar 2000?', icon: '⏳' },
+      { color: 'bg-yellow-300', border: 'border-yellow-200', name: 'Jaartal ± 4 jaar', icon: '📅' },
+      { color: 'bg-purple-600', border: 'border-purple-500', name: 'Welk Decennium?', icon: '📼' },
       { color: 'bg-sky-500', border: 'border-sky-400', name: 'Jaartal ± 2 jaar', icon: '🎵' }
     ],
     B: [
       { color: 'bg-emerald-600', border: 'border-emerald-500', name: 'Titel van het nummer', icon: '🎶' },
-      { color: 'bg-rose-600', border: 'border-rose-500', name: 'Exacte Jaartal', icon: '🕰️' },
-      { color: 'bg-amber-600', border: 'border-amber-500', name: 'Naam Artiest/Groep', icon: '👤' },
-      { color: 'bg-fuchsia-700', border: 'border-fuchsia-600', name: 'Welk Decennium?', icon: '📼' },
+      { color: 'bg-pink-600', border: 'border-pink-500', name: 'Exacte Jaartal', icon: '🕰️' },
+      { color: 'bg-yellow-300', border: 'border-yellow-200', name: 'Naam Artiest/Groep', icon: '👤' },
+      { color: 'bg-purple-700', border: 'border-purple-600', name: 'Welk Decennium?', icon: '📼' },
       { color: 'bg-sky-600', border: 'border-sky-500', name: 'Jaartal ± 3 jaar', icon: '📅' }
     ]
   };
@@ -170,7 +170,7 @@
           on:click={reset}
           class="mt-16 w-full py-5 bg-white text-black font-black rounded-2xl hover:bg-pink-500 hover:text-white transition-all transform hover:-translate-y-1 active:scale-95 uppercase tracking-widest text-sm shadow-2xl focus:outline-none focus:ring-4 focus:ring-white/20"
         >
-          Volgende Speler (Enter)
+          Volgende Kaartje (Enter)
         </button>
       </div>
     </div>
